@@ -12,7 +12,13 @@ router.post('/', async (req, res) => {
 	try {
 		await User.findOne({ username: usern, password: userpass })
 			.select()
-			.then((isRight) => res.json(isRight))
+			.then((isRight) => {
+				if(isRight === null) {
+					return res.json('User Not Found')
+				} else {
+					return res.json(isRight)
+				}
+			})
 	} catch (error) {
 		res.json(error)
 	}
