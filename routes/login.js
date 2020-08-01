@@ -16,6 +16,7 @@ router.post('/', async (req, res) => {
 				if(isRight === null) {
 					return res.json('User Not Found')
 				} else {
+					console.log(isRight)
 					return res.json(isRight)
 				}
 			})
