@@ -4,9 +4,11 @@ const User = require('../models/user.model.js')
 const mongoose = require('mongoose')
 
 router.put('/', async (req, res) => {
-  await User.findOneAndUpdate({ _id: req.body.userId }, 
+
+  const parsedUserId = mongoose.Types.ObjectId(req.body.userId)
+
+  await User.findOneAndUpdate({ _id: parsedUserId }, 
     { markers: req.body.markers },
-    {next: true},
     function(err, result) {
       if(err) {
         res.send(err)

@@ -11,6 +11,7 @@ const UserSchema = mongoose.Schema({
   },
   markers: {
     type: Array,
+    default: []
   }
 })
 
