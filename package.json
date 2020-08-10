@@ -4,8 +4,7 @@
   "description": "Kite Surfing REST Api Server Database",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
-    "start": "concurrently \"npm run server\" \"cd ../kite-weather-project && npm run serve\" "
+    "server": "nodemon server.js"
   },
   "keywords": [
     "rest",
@@ -18,7 +17,6 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

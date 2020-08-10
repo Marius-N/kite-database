@@ -8,10 +8,10 @@ require('dotenv/config')
 app.use(bodyParser.json())
 
 var corsOptions = {
-	'Origin': "http://localhost:8080",
-	'Access-Control-Allow-Origin': '*',
-	'Access-Control-Allow-Methods': 'POST',
-	'Access-Control-Allow-Headers': 'Origin, Methods, Content-Type',
+	'Access-Control-Allow-Origin': 'http://localhost:8080',
+	'Access-Control-Allow-Methods': 'GET, PUT, POST',
+	'Access-Control-Allow-Headers': 'Content-Type',
+	'Access-Control-Request-Method': 'PUT', 
 }
 
 app.use(cors(corsOptions))
@@ -19,9 +19,11 @@ app.use(cors(corsOptions))
 // Import routes
 const loginRoutes = require('./routes/login')
 const saveMarkersRoute = require('./routes/save-marker')
+const signUpRoutes = require('./routes/signup')
 
 app.use('/login', loginRoutes)
 app.use('/save', saveMarkersRoute)
+app.use('/signup', signUpRoutes)
 
 // Connect to db
 mongoose.connect(
